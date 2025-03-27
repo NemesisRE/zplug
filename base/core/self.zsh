@@ -1,6 +1,6 @@
 __zplug::core::self::init()
 {
-    local repo="zplug/zplug"
+    local repo="NemesisRE/zplug"
     local src="$ZPLUG_REPOS/$repo/init.zsh"
     local dst="$ZPLUG_HOME/init.zsh"
 
@@ -19,11 +19,11 @@ __zplug::core::self::update()
     local ret=0
     local HEAD
 
-    if ! __zplug::base::base::zpluged "zplug/zplug"; then
+    if ! __zplug::base::base::zpluged "NemesisRE/zplug"; then
         __zplug::io::print::f \
             --die \
             --zplug \
-            "zplug/zplug: no package managed by zplug\n"
+            "NemesisRE/zplug: no package managed by zplug\n"
         return 1
     fi
 
@@ -33,9 +33,9 @@ __zplug::core::self::update()
         # TODO: "DONE"
         #__zplug::core::core::run_interfaces \
         #    "update" \
-        #    "zplug/zplug"
+        #    "NemesisRE/zplug"
         #    ^-- Leave these codes just in case for a while
-        __zplug::sources::github::update "zplug/zplug"
+        __zplug::sources::github::update "NemesisRE/zplug"
         ret=$status
         if (( $ret == $_zplug_status[up_to_date] )); then
             ret=$_zplug_status[self_return]
@@ -67,7 +67,7 @@ __zplug::core::self::info()
     local    arg
     local -A revisions
 
-    __zplug::utils::git::status "zplug/zplug"
+    __zplug::utils::git::status "NemesisRE/zplug"
     revisions=( "$reply[@]" )
 
     while (( $# > 0 ))

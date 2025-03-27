@@ -86,7 +86,7 @@ __zplug::core::load::as_plugin()
     done
 
     # Special measure
-    if [[ $repo == 'zplug/zplug' ]]; then
+    if [[ $repo == 'NemesisRE/zplug' ]]; then
         # In the case of zplug, don't load it exceptionally
         return 0
     fi

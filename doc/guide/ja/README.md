@@ -21,7 +21,7 @@
   - 外部フレームワークなどのプラグイン (例: [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) や [prezto](https://github.com/sorin-ionescu/prezto) のプラグイン・テーマ)
   - [GitHub Releases](https://help.github.com/articles/about-releases/) のバイナリファイル
   - ローカルプラグイン
-  - その他 ([カスタムソース](https://github.com/zplug/zplug/blob/master/doc/zplug/External-Sources.md)によって追加できる)
+  - その他 ([カスタムソース](https://github.com/NemesisRE/zplug/blob/master/doc/zplug/External-Sources.md)によって追加できる)
 - 高速インストール・高速アップデート
 - 遅延読み込みに対応
 - リビジョンロック(ブランチやタグを固定する機能)
@@ -63,7 +63,7 @@ GitHub からクローンしてきて `init.zsh` を読み込む:
 
 ```console
 $ export ZPLUG_HOME=/path/to/.zplug
-$ git clone https://github.com/zplug/zplug $ZPLUG_HOME
+$ git clone https://github.com/NemesisRE/zplug $ZPLUG_HOME
 ```
 
 ## 必要条件
@@ -233,7 +233,7 @@ fi
 他のパッケージと同様に zplug を管理するには `.zshrc` に以下を書き込む。
 
 ```zsh
-zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+zplug 'NemesisRE/zplug', hook-build:'zplug --self-manage'
 ```
 
 あとは `zplug update` を実行するだけ。
@@ -248,7 +248,7 @@ zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 |-----|-------------|-----------------|---------|
 | `as`          | プラグインとして、またはコマンドとして追加するか指定する | `plugin`,`command`,`theme` (`plugin`) | `as:command` |
 | `use`         | 読み込むファイルパターンを指定する (`plugin` のとき) か `$PATH` に追加したいコマンドの相対パスを指定する (`command` のとき) / `from:gh-r` の場合は zplug が自動で OS のアーキテクチャを判別するが、意図しない結果の場合 `use:"*darwin*{amd,386}*"` のようにすると良い | *グロブ・パターン* (`use:"*.zsh"`) | `use:bin`,`use:"*.sh"`, `use:*darwin*` |
-| `ignore`      | `use` タグと似ているが無視したいファイルパターンを指定する ([#56](https://github.com/zplug/zplug/issues/56) 参照) | *グロブ・パターン* (-) | `ignore:"some_*.zsh"` |
+| `ignore`      | `use` タグと似ているが無視したいファイルパターンを指定する ([#56](https://github.com/NemesisRE/zplug/issues/56) 参照) | *グロブ・パターン* (-) | `ignore:"some_*.zsh"` |
 | `from`        | どこからインストールするか指定する | `github`,`bitbucket`,<br>`gh-r`,`gist`,<br>`oh-my-zsh`,`prezto`,`local` (`github`) | `from:gh-r` |
 | `at`          | branch/tag/commit を指定して固定する | *リビジョン* (`master`) | `at:v1.5.6` |
 | `rename-to`   | リンクするときに変更したいファイル名を指定する (`as:command` のときのみ有効) | *ファイル名* (-) | `rename-to:fzf` |
@@ -258,7 +258,7 @@ zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 | `hook-load`   | ロード後に実行するコマンド | *コマンド* (-) | `hook-load:"echo 'Loaded!'"` |
 | `frozen`      | 明示的に指定するとアップデート対象から省く | truthy または falsy (false) | `frozen:1` |
 | `on`          | 指定されたパッケージがインストールされているときのみロードする | *package* | `on:user/repo` |
-| `defer`        | プラグインの読み込みを遅らせる。 2 以上を指定すると、`compinit` コマンドの実行後に読まれることになる ([#26](https://github.com/zplug/zplug/issues/26) 参照) | 0 から 3 (0) | `defer:2` |
+| `defer`        | プラグインの読み込みを遅らせる。 2 以上を指定すると、`compinit` コマンドの実行後に読まれることになる ([#26](https://github.com/NemesisRE/zplug/issues/26) 参照) | 0 から 3 (0) | `defer:2` |
 | `lazy`        | 遅延読み込みするかどうかを指定する | truthy または falsy (false) | `lazy:true` |
 | `depth`       | リポジトリをクローンするときのヒストリサイズ。0 はすべてのヒストリをクローンする | 0 と正の整数 | `depth:10` |
 
@@ -365,7 +365,7 @@ zplug "some/command", hook-build:"make && sudo make install"
 zplug では `git(1)` のように外部コマンド機能が利用できる。
 `$PATH` のいずれかにある `zplug-cmdname` の規則を持つ実行ファイルは、まるでサブコマンドのように `zplug cmdname` の形で利用することができる。
 これにより自由に自分で zplug のコマンドを追加したり拡張することができる。
-作成方法や利用ガイドラインの詳細については [docs](https://github.com/zplug/zplug/blob/master/doc/zplug/External-Commands.md) ディレクトリ以下にあるので参照のこと。実際の外部コマンドのサンプルには [`zplug-env`](https://github.com/zplug/zplug/blob/master/bin/zplug-env) を参照すると良い。
+作成方法や利用ガイドラインの詳細については [docs](https://github.com/NemesisRE/zplug/blob/master/doc/zplug/External-Commands.md) ディレクトリ以下にあるので参照のこと。実際の外部コマンドのサンプルには [`zplug-env`](https://github.com/NemesisRE/zplug/blob/master/bin/zplug-env) を参照すると良い。
 
 ## V.S.
 
@@ -382,19 +382,19 @@ zplug は他の有名な zsh プラグインマネージャーよりも速い:
 
 zplug などから利用できる zsh プラグインは [awesome-zsh-plugins](https://github.com/unixorn/awesome-zsh-plugins) にあるので参考になる。
 
-antigen や zgen、もしくは zplug v1 から移行するための情報は [zplug の公式 wiki](https://github.com/zplug/zplug/wiki/Migration) にある。
+antigen や zgen、もしくは zplug v1 から移行するための情報は [zplug の公式 wiki](https://github.com/NemesisRE/zplug/wiki/Migration) にある。
 
 ## ライセンス
 
 [MIT][license] (c) [@b4b4r07](https://github.com/b4b4r07)
 
-[repo]: https://github.com/zplug/zplug
+[repo]: https://github.com/NemesisRE/zplug
 [license]: http://b4b4r07.mit-license.org
-[travis-link]: https://travis-ci.org/zplug/zplug
-[travis-badge]: https://img.shields.io/travis/zplug/zplug.svg?style=flat-square
+[travis-link]: https://travis-ci.org/NemesisRE/zplug
+[travis-badge]: https://img.shields.io/travis/NemesisRE/zplug.svg?style=flat-square
 [latest-badge]: https://img.shields.io/badge/latest-v2.4.2-ca7f85.svg?style=flat-square
-[latest-link]: https://github.com/zplug/zplug/releases/latest
+[latest-link]: https://github.com/NemesisRE/zplug/releases/latest
 [stable-badge]: https://img.shields.io/badge/stable-v2.3.2-e9a326.svg?style=flat-square
-[stable-link]: https://github.com/zplug/zplug/releases/tag/2.3.2
+[stable-link]: https://github.com/NemesisRE/zplug/releases/tag/2.3.2
 [slack-link]: https://zplug.herokuapp.com
 [slack-badge]: https://img.shields.io/badge/slack-join-ca7f85.svg?style=flat-square

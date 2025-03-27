@@ -5,8 +5,8 @@ Please read this instructions carefully!
 
 1. If it is not reported according to this issue template, it may be closed unconditionally
 2. In accordance with "Issue Type", you should uncomment below "EDITING AREA" corresponding the part
-3. You checked the [FAQ](https://github.com/zplug/zplug/wiki/FAQ) for common problems.
-4. Check your [requirements](https://github.com/zplug/zplug/wiki/FAQ#what-are-the-requirements) are satisfied.
+3. You checked the [FAQ](https://github.com/NemesisRE/zplug/wiki/FAQ) for common problems.
+4. Check your [requirements](https://github.com/NemesisRE/zplug/wiki/FAQ#what-are-the-requirements) are satisfied.
 -->
 
 <!-- Check at least one that applies below: -->

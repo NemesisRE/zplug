@@ -21,7 +21,7 @@
   - Externally managed plugins e.g., [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) and [prezto](https://github.com/sorin-ionescu/prezto) plugins/themes
   - Binary artifacts on [GitHub Releases](https://help.github.com/articles/about-releases/)
   - Local plugins
-  - etc. (you can add your [own sources](https://github.com/zplug/zplug/blob/master/doc/guide/External-Sources.md)!)
+  - etc. (you can add your [own sources](https://github.com/NemesisRE/zplug/blob/master/doc/guide/External-Sources.md)!)
 - Super-fast parallel installation/update
 - Support for lazy-loading
 - Branch/tag/commit support
@@ -62,7 +62,7 @@ Cloning from GitHub, and source `init.zsh`:
 
 ```console
 $ export ZPLUG_HOME=/path/to/.zplug
-$ git clone https://github.com/zplug/zplug $ZPLUG_HOME
+$ git clone https://github.com/NemesisRE/zplug $ZPLUG_HOME
 ```
 
 ## Requirements
@@ -229,7 +229,7 @@ fi
 To manage zplug itself like other packages, write the following in your `.zshrc`.
 
 ```zsh
-zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+zplug 'NemesisRE/zplug', hook-build:'zplug --self-manage'
 ```
 
 All that's left is to run `zplug update`.
@@ -244,7 +244,7 @@ All that's left is to run `zplug update`.
 |-----|-------------|-----------------|---------|
 | `as`          | Specify whether to register the package as plugins or commands | `plugin`,`command`,`theme` (`plugin`) | `as:command` |
 | `use`         | Specify the pattern of the files to source (for `plugin`) or the relative path to add to the `$PATH` (for `command`) / With `from:gh-r`, zplug tries to guess which file to use from your OS and architecture. You can manually specify `use:"*darwin*{amd,386}*"` if that doesn't get the right file. | *glob* (`use:"*.zsh"`) | `use:bin`,`use:"*.sh"`, `use:*darwin*` |
-| `ignore`      | Similar to `use` tag, but specify pattern of files you want to ignore (see also [#56](https://github.com/zplug/zplug/issues/56)) | *glob* (-) | `ignore:"some_*.zsh"` |
+| `ignore`      | Similar to `use` tag, but specify pattern of files you want to ignore (see also [#56](https://github.com/NemesisRE/zplug/issues/56)) | *glob* (-) | `ignore:"some_*.zsh"` |
 | `from`        | Specify where to get the package from | `github`,`bitbucket`,<br>`gh-r`,`gist`,<br>`oh-my-zsh`,`prezto`,`local` (`github`) | `from:gh-r` |
 | `at`          | Specify branch/tag/commit to install | *revision* (`master`) | `at:v1.5.6` |
 | `rename-to`   | Specify the filename you want to rename the command to (use this only with `as:command`) | *filename* (-) | `rename-to:fzf` |
@@ -254,7 +254,7 @@ All that's left is to run `zplug update`.
 | `hook-load`   | Commands to run after loading | *commands* (-) | `hook-load:"echo 'Loaded!'"` |
 | `frozen`      | Do not update unless explicitly specified | truthy,falsy (false) | `frozen:1` |
 | `on`          | Load this package only if a different package is installed | *package* | `on:user/repo` |
-| `defer`        | Defers the loading of a package. If the value is 2 or above, zplug will source the plugin after `compinit` (see also [#26](https://github.com/zplug/zplug/issues/26)) | 0..3 (0) | `defer:2` |
+| `defer`        | Defers the loading of a package. If the value is 2 or above, zplug will source the plugin after `compinit` (see also [#26](https://github.com/NemesisRE/zplug/issues/26)) | 0..3 (0) | `defer:2` |
 | `lazy`        | Whether it is an autoload function or not | truthy,falsy (false) | `lazy:true` |
 | `depth`       | The number of commits to include in the cloned repository. 0 means the whole history. | Any non-negative integer | `depth:10` |
 
@@ -376,8 +376,8 @@ zplug, like `git(1)`, supports external commands.
 These are executable scripts that reside somewhere in the PATH, named `zplug-cmdname`,
 which can be invoked with `zplug cmdname`.
 This allows you to create your own commands without modifying zplug's internals.
-Instructions for creating your own commands can be found in the [docs](https://github.com/zplug/zplug/blob/master/doc/zplug/External-Commands.md).
-Check out the sample [`zplug-env`](https://github.com/zplug/zplug/blob/master/bin/zplug-env) external command for an example.
+Instructions for creating your own commands can be found in the [docs](https://github.com/NemesisRE/zplug/blob/master/doc/zplug/External-Commands.md).
+Check out the sample [`zplug-env`](https://github.com/NemesisRE/zplug/blob/master/bin/zplug-env) external command for an example.
 
 ## V.S.
 
@@ -395,19 +395,19 @@ zplug is the fastest among the famous zsh plugin managers. Numbers? Here they ar
 [awesome-zsh-plugins](https://github.com/unixorn/awesome-zsh-plugins) is a list of ZSH plugins, themes and completions that you can use with zplug.
 
 For migration from antigen, zgen, or zplug v1, check out the [wiki
-page](https://github.com/zplug/zplug/wiki/Migration).
+page](https://github.com/NemesisRE/zplug/wiki/Migration).
 
 ## License
 
 [MIT][license] (c) [@b4b4r07](https://github.com/b4b4r07)
 
-[repo]: https://github.com/zplug/zplug
+[repo]: https://github.com/NemesisRE/zplug
 [license]: http://b4b4r07.mit-license.org
-[travis-link]: https://travis-ci.org/zplug/zplug
-[travis-badge]: https://img.shields.io/travis/zplug/zplug.svg?style=flat-square
+[travis-link]: https://travis-ci.org/NemesisRE/zplug
+[travis-badge]: https://img.shields.io/travis/NemesisRE/zplug.svg?style=flat-square
 [latest-badge]: https://img.shields.io/badge/latest-v2.4.2-ca7f85.svg?style=flat-square
-[latest-link]: https://github.com/zplug/zplug/releases/latest
+[latest-link]: https://github.com/NemesisRE/zplug/releases/latest
 [stable-badge]: https://img.shields.io/badge/stable-v2.3.2-e9a326.svg?style=flat-square
-[stable-link]: https://github.com/zplug/zplug/releases/tag/2.3.2
+[stable-link]: https://github.com/NemesisRE/zplug/releases/tag/2.3.2
 [slack-link]: https://zplug.herokuapp.com
 [slack-badge]: https://img.shields.io/badge/slack-join-ca7f85.svg?style=flat-square
