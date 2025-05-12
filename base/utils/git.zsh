@@ -320,7 +320,7 @@ __zplug::utils::git::get_remote_state()
 
     if (( $status == 0 )); then
         merge_branch="${$(git config branch.${branch}.merge)#refs/heads/}"
-        remote_show="$(git remote show "$remote_name")"
+        remote_show="$(LANG=C git remote show "$remote_name")"
         state="$(grep "^ *$branch *pushes" <<<"$remote_show" | sed 's/.*(\(.*\)).*/\1/')"
 
         if [[ -z $state ]]; then
